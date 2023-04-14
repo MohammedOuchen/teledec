@@ -1,8 +1,9 @@
 <template>
-  <HelloWorld />
   <v-card text="textxcycycuhvchcveh" variant="tonal"></v-card>
+  <ListOfProperty />
 </template>
 
-<script lang="ts" setup>
-  import HelloWorld from '@/components/HelloWorld.vue'
+<script setup>
+import ListOfProperty from '../components/ListOfProperty.vue';
+
 </script>
