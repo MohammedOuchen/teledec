@@ -1,5 +1,5 @@
 <template>
-  <v-card text="textxcycycuhvchcveh" variant="tonal"></v-card>
+  <v-card text="Teledec" variant="tonal"></v-card>
   <ListOfProperty />
 </template>
 
