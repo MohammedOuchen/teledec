@@ -89,9 +89,8 @@
         >
           <v-text-field
             v-model="property.rents_collected_in_cent"
-            :rules="textRules"
             :counter="10"
-            label="Loyers encaissés"
+            label="Loyers encaissés (€)"
             type="number"
             required
           ></v-text-field>
@@ -103,9 +102,8 @@
         >
         <v-text-field
             v-model="property.gants_special_work_in_cent"
-            :rules="textRules"
             :counter="10"
-            label="Subventions pour travaux spéciaux"
+            label="Subventions pour travaux spéciaux (€)"
             type="number"
             required
           ></v-text-field>
@@ -119,7 +117,7 @@
           <v-text-field
             v-model="property.work_expenses_in_cent"
             :counter="10"
-            label="Dépenses de travaux"
+            label="Dépenses de travaux (€)"
             type="number"
             required
           ></v-text-field>
@@ -132,7 +130,7 @@
         <v-text-field
             v-model="property.taxation_in_cent"
             :counter="10"
-            label="Imposition"
+            label="Imposition (€)"
             type="number"
             required
           ></v-text-field>
@@ -144,7 +142,7 @@
         <v-text-field
             v-model="property.insurances_premiums"
             :counter="10"
-            label="Primes d’assurances"
+            label="Primes d’assurances (€)"
             type="number"
             required
           ></v-text-field>
@@ -163,11 +161,14 @@
 </template>
 <script setup lang="ts">
 import { usePropertyStore } from '@/store/property'
-import { Property } from '@/model/Property'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
   const valid = ref(false)
-  const property = new Property()
+  const propertyStore = usePropertyStore()
+  const property = ref(propertyStore._property)
+  const router = useRouter()
+
 
   const textRules = ref([
     (value: string) => {
@@ -186,10 +187,10 @@ import { ref } from 'vue'
     { name: 'Italie' },
     { name: 'Espagne' },
   ])
-  const propertyStore = usePropertyStore()
 
   function submit() {
-    propertyStore.createProperty(property)
+    propertyStore.createProperty(property.value)
+    router.push({ name: 'Home' })
   }
 
 </script>

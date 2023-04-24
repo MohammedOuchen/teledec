@@ -22,7 +22,7 @@
             <td>{{ item.name }}</td>
             <td>{{ `${item.street_number}, ${item.city}, ${item.postal_code} ${item.country}` }}</td>
             <td>
-              <v-btn variant="outlined" color="green">
+              <v-btn variant="outlined" color="green" @click="update(item)">
                 Modifier
               </v-btn>
               <v-btn variant="outlined" color="warning" @click="confirmDelete(item)">
@@ -70,25 +70,21 @@
 <script lang="ts" setup>
 import { usePropertyStore } from '@/store/property';
 import { IProperty } from '@/model/IProperty'
+import { Property } from '@/model/Property'
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
 
 
 // var, store
-const appStore = usePropertyStore()
+const propertyStore = usePropertyStore()
 const dialog = ref(false)
-const currentProperty = ref({
-  id: 0,
-  name: '',
-  street_number: '',
-  city: '',
-  country: '',
-  postal_code: ''
-})
+let currentProperty = ref(new Property())
+const router = useRouter()
 
-appStore.loadProperties()
+propertyStore.loadProperties()
 
 // computed
-const properties = computed<Array<IProperty>>(() => appStore.properties)
+const properties = computed<Array<IProperty>>(() => propertyStore.properties)
 
 // function
 function confirmDelete(property: IProperty) {
@@ -97,8 +93,12 @@ function confirmDelete(property: IProperty) {
   console.log('[item] => ', property);
 }
 function deleteProperty() {
-  console.log('[delete] => ', currentProperty.value);
+  console.log('[delete] => ', currentProperty);
   dialog.value = false
-  appStore.deleteProperty(currentProperty.value.id)
+  propertyStore.deleteProperty(currentProperty.value.id)
+}
+function update (property: IProperty) {
+  propertyStore._property = property;
+  router.push({ name: 'Create' })
 }
 </script>
