@@ -1,7 +1,7 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
-import Create from '@/views/Create.vue'
+import Create from '@/views/CreateOrUpdate.vue'
 
 
 const routes = [

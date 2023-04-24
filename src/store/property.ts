@@ -3,13 +3,14 @@ import { defineStore } from 'pinia'
 import { IProperty } from '@/model/IProperty'
 import { Property } from '@/model/Property'
 
-export const usePropertyStore = defineStore('app', {
+export const usePropertyStore = defineStore('property', {
   state: () => ({
     _properties : [] as IProperty[],
     _property: new Property()
   }),
   getters: {
     properties  (state) { return state._properties  },
+    property  (state) { return state._property  },
   },
   actions: {
     async loadProperties  () {
@@ -39,6 +40,15 @@ export const usePropertyStore = defineStore('app', {
        } catch (error) {
          console.log(error);
        }
+    },
+
+    async updateProperty(updatedProperty: IProperty) {
+      try {
+        const response = await axios.put(`/properties/${updatedProperty.id}`, updatedProperty)
+        console.log('reponse => ', response);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 })

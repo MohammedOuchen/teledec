@@ -189,8 +189,11 @@ import { useRouter } from 'vue-router'
   ])
 
   function submit() {
-    propertyStore.createProperty(property.value)
+    if (property.value.id) {
+      propertyStore.updateProperty(property.value)
+    } else {
+      propertyStore.createProperty(property.value)
+    }
     router.push({ name: 'Home' })
   }
-
 </script>
