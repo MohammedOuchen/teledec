@@ -68,13 +68,13 @@
 </template>
 
 <script lang="ts" setup>
-import { useAppStore } from '@/store/app';
-import { Property } from '@/model/property'
+import { usePropertyStore } from '@/store/property';
+import { IProperty } from '@/model/IProperty'
 import { ref, computed } from 'vue'
 
 
 // var, store
-const appStore = useAppStore()
+const appStore = usePropertyStore()
 const dialog = ref(false)
 const currentProperty = ref({
   id: 0,
@@ -88,10 +88,10 @@ const currentProperty = ref({
 appStore.loadProperties()
 
 // computed
-const properties = computed<Array<Property>>(() => appStore.properties)
+const properties = computed<Array<IProperty>>(() => appStore.properties)
 
 // function
-function confirmDelete(property: Property) {
+function confirmDelete(property: IProperty) {
   dialog.value = true
   currentProperty.value = property
   console.log('[item] => ', property);

@@ -1,10 +1,10 @@
 import axios from 'axios'
 import { defineStore } from 'pinia'
-import { Property } from '@/model/property'
+import { IProperty } from '@/model/IProperty'
 
-export const useAppStore = defineStore('app', {
+export const usePropertyStore = defineStore('app', {
   state: () => ({
-    _properties : [] as Property[]
+    _properties : [] as IProperty[]
   }),
   getters: {
     properties  (state) { return state._properties  },
@@ -23,6 +23,16 @@ export const useAppStore = defineStore('app', {
       try {
         await axios.delete('properties/'+id)
         this._properties  = this._properties.filter(property => property.id !== id)
+
+       } catch (error) {
+         console.log(error);
+       }
+    },
+
+    async  createProperty(property: IProperty) {
+      try {
+        await axios.post('properties/', property)
+        this._properties.push(property)
 
        } catch (error) {
          console.log(error);

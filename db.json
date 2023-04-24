@@ -1,19 +1,8 @@
 {
-  "profile": { "name": "typicode" },
+  "profile": {
+    "name": "typicode"
+  },
   "properties": [
-    {
-      "id": 1,
-      "name": "appartement",
-      "street_number": "2 carrefour du géneral de gaulle",
-      "postal_code": 94380,
-      "city": "boneuil sur marne",
-      "country": "France",
-      "rents_collected_in_cent": 100000,
-      "gants_special_work_in_cent": 100000,
-      "work_expenses_in_cent": 1000,
-      "taxation_in_cent": 10000,
-      "insurances_premiums": 1000
-    },
     {
       "id": 1,
       "name": "appartement",
