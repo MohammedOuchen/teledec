@@ -4,30 +4,17 @@
   },
   "properties": [
     {
-      "id": 1,
+      "id": 2,
       "name": "appartement 1",
       "street_number": "2 carrefour du géneral de gaulle",
-      "postal_code": 94380,
       "city": "boneuil sur marne",
       "country": "France",
-      "rents_collected_in_cent": 100000,
-      "gants_special_work_in_cent": 100000,
-      "work_expenses_in_cent": 1000,
-      "taxation_in_cent": 10000,
-      "insurances_premiums": 1000
-    },
-    {
-      "id": 2,
-      "name": "appartement 2",
-      "street_number": "2 carrefour du géneral de gaulle",
       "postal_code": 94380,
-      "city": "boneuil sur marne",
-      "country": "France",
-      "rents_collected_in_cent": 100000,
-      "gants_special_work_in_cent": 100000,
-      "work_expenses_in_cent": 1000,
-      "taxation_in_cent": 10000,
-      "insurances_premiums": 1000
+      "rents_collected": 1000,
+      "gants_special_work": 1000,
+      "work_expenses": 10,
+      "taxation": 100,
+      "insurances_premiums": 0
     },
     {
       "id": 3,
@@ -36,10 +23,10 @@
       "postal_code": 94380,
       "city": "boneuil sur marne",
       "country": "France",
-      "rents_collected_in_cent": 100000,
-      "gants_special_work_in_cent": 100000,
-      "work_expenses_in_cent": 1000,
-      "taxation_in_cent": 10000,
+      "rents_collected": 100000,
+      "gants_special_work": 100000,
+      "work_expenses": 1000,
+      "taxation": 10000,
       "insurances_premiums": 1000
     },
     {
@@ -49,10 +36,10 @@
       "postal_code": 94380,
       "city": "boneuil sur marne",
       "country": "France",
-      "rents_collected_in_cent": 100000,
-      "gants_special_work_in_cent": 100000,
-      "work_expenses_in_cent": 1000,
-      "taxation_in_cent": 10000,
+      "rents_collected": 100000,
+      "gants_special_work": 100000,
+      "work_expenses": 1000,
+      "taxation": 10000,
       "insurances_premiums": 1000
     }
   ]

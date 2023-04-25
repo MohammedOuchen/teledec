@@ -75,7 +75,7 @@
           md="6"
         >
           <v-text-field
-            v-model="property.rents_collected_in_cent"
+            v-model="property.rents_collected"
             :counter="10"
             label="Loyers encaissés (€)"
             type="number"
@@ -88,7 +88,7 @@
           md="6"
         >
         <v-text-field
-            v-model="property.gants_special_work_in_cent"
+            v-model="property.gants_special_work"
             :counter="10"
             label="Subventions pour travaux spéciaux (€)"
             type="number"
@@ -102,7 +102,7 @@
           md="4"
         >
           <v-text-field
-            v-model="property.work_expenses_in_cent"
+            v-model="property.work_expenses"
             :counter="10"
             label="Dépenses de travaux (€)"
             type="number"
@@ -115,7 +115,7 @@
           md="4"
         >
         <v-text-field
-            v-model="property.taxation_in_cent"
+            v-model="property.taxation"
             :counter="10"
             label="Imposition (€)"
             type="number"
@@ -127,7 +127,7 @@
           md="4"
         >
         <v-text-field
-            v-model="property.insurances_premiums_in_cent"
+            v-model="property.insurances_premiums"
             :counter="10"
             label="Primes d’assurances (€)"
             type="number"

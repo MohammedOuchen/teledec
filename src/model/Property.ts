@@ -5,11 +5,11 @@ export class Property {
   city: string;
   country: string;
   postal_code: string;
-  rents_collected_in_cent: number;
-  gants_special_work_in_cent: number;
-  work_expenses_in_cent: number;
-  taxation_in_cent: number;
-  insurances_premiums_in_cent: number;
+  rents_collected: number;
+  gants_special_work: number;
+  work_expenses: number;
+  taxation: number;
+  insurances_premiums: number;
 
   constructor(
     id: number | null = null,
@@ -30,16 +30,16 @@ export class Property {
     this.city = city;
     this.country = country;
     this.postal_code = postal_code;
-    this.rents_collected_in_cent = rents_collected_in_cent;
-    this.gants_special_work_in_cent = gants_special_work_in_cent;
-    this.work_expenses_in_cent = work_expenses_in_cent;
-    this.taxation_in_cent = taxation_in_cent;
-    this.insurances_premiums_in_cent = insurances_premiums_in_cent;
+    this.rents_collected = rents_collected_in_cent;
+    this.gants_special_work = gants_special_work_in_cent;
+    this.work_expenses = work_expenses_in_cent;
+    this.taxation = taxation_in_cent;
+    this.insurances_premiums = insurances_premiums_in_cent;
   }
 
 
   public get totalNet(): number {
 
-    return (this.rents_collected_in_cent+this.gants_special_work_in_cent-this.work_expenses_in_cent-this.taxation_in_cent-this.insurances_premiums_in_cent)*100;
+    return (this.rents_collected+this.gants_special_work-this.work_expenses-this.taxation-this.insurances_premiums);
   }
 }
