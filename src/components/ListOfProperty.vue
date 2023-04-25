@@ -1,6 +1,6 @@
 <template>
   <div>
-     <v-table v-if="properties">
+     <v-table class="border" v-if="properties">
         <thead>
           <tr>
             <th class="text-left">
@@ -22,7 +22,7 @@
             <td>{{ item.name }}</td>
             <td>{{ `${item.street_number}, ${item.city}, ${item.postal_code} ${item.country}` }}</td>
             <td>
-              <v-btn variant="outlined" color="green" @click="update(item)">
+              <v-btn class="mr-1" variant="outlined" color="green" @click="update(item)">
                 Modifier
               </v-btn>
               <v-btn variant="outlined" color="warning" @click="confirmDelete(item)">
@@ -69,7 +69,6 @@
 
 <script lang="ts" setup>
 import { usePropertyStore } from '@/store/property';
-import { IProperty } from '@/model/IProperty'
 import { Property } from '@/model/Property'
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
@@ -84,20 +83,18 @@ const router = useRouter()
 propertyStore.loadProperties()
 
 // computed
-const properties = computed<Array<IProperty>>(() => propertyStore.properties)
+const properties = computed<Array<Property>>(() => propertyStore.properties)
 
 // function
-function confirmDelete(property: IProperty) {
+function confirmDelete(property: Property) {
   dialog.value = true
   currentProperty.value = property
-  console.log('[item] => ', property);
 }
 function deleteProperty() {
-  console.log('[delete] => ', currentProperty);
   dialog.value = false
   propertyStore.deleteProperty(currentProperty.value.id)
 }
-function update (property: IProperty) {
+function update (property: Property) {
   propertyStore._property = property;
   router.push({ name: 'Create' })
 }

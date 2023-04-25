@@ -4,7 +4,7 @@
       <v-row>
         <v-col
           cols="12"
-          md="4"
+          md="6"
         >
           <v-text-field
             v-model="property.name"
@@ -17,26 +17,13 @@
 
         <v-col
           cols="12"
-          md="4"
+          md="6"
         >
           <v-text-field
             v-model="property.street_number"
             :rules="textRules"
             :counter="10"
             label="Numéro-rue-voie,"
-            required
-          ></v-text-field>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="4"
-        >
-          <v-text-field
-            v-model="property.postal_code"
-            :rules="textRules"
-            label="Code postale"
-            type="number"
             required
           ></v-text-field>
         </v-col>
@@ -140,7 +127,7 @@
           md="4"
         >
         <v-text-field
-            v-model="property.insurances_premiums"
+            v-model="property.insurances_premiums_in_cent"
             :counter="10"
             label="Primes d’assurances (€)"
             type="number"

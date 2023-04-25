@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { defineStore } from 'pinia'
-import { IProperty } from '@/model/IProperty'
 import { Property } from '@/model/Property'
+import { PropertiesList } from '@/model/PropertiesList'
 
 export const usePropertyStore = defineStore('property', {
   state: () => ({
-    _properties : [] as IProperty[],
+    _properties : [] as Property[],
     _property: new Property()
   }),
   getters: {
@@ -16,7 +16,8 @@ export const usePropertyStore = defineStore('property', {
     async loadProperties  () {
      try {
       const { data} =await axios.get('properties')
-      this._properties = data;
+      const propertiesList = new PropertiesList(data)
+      this._properties = propertiesList.propertiesList;
      } catch (error) {
        console.log(error);
      }
@@ -32,7 +33,7 @@ export const usePropertyStore = defineStore('property', {
        }
     },
 
-    async  createProperty(property: IProperty) {
+    async  createProperty(property: Property) {
       try {
         await axios.post('properties/', property)
         this._properties.push(property)
@@ -42,7 +43,7 @@ export const usePropertyStore = defineStore('property', {
        }
     },
 
-    async updateProperty(updatedProperty: IProperty) {
+    async updateProperty(updatedProperty: Property) {
       try {
         const response = await axios.put(`/properties/${updatedProperty.id}`, updatedProperty)
         console.log('reponse => ', response);

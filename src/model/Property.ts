@@ -1,17 +1,15 @@
-import { IProperty } from "./IProperty";
-
-export class Property implements IProperty {
+export class Property {
   id: number | null;
   name: string;
   street_number: string;
   city: string;
   country: string;
   postal_code: string;
-  rents_collected_in_cent: string | null;
-  gants_special_work_in_cent: string | null;
-  work_expenses_in_cent: string | null;
-  taxation_in_cent: string | null;
-  insurances_premiums: string | null;
+  rents_collected_in_cent: number;
+  gants_special_work_in_cent: number;
+  work_expenses_in_cent: number;
+  taxation_in_cent: number;
+  insurances_premiums_in_cent: number;
 
   constructor(
     id: number | null = null,
@@ -20,11 +18,11 @@ export class Property implements IProperty {
     city: string = '',
     country: string = '',
     postal_code: string = '',
-    rents_collected_in_cent: string | null = null,
-    gants_special_work_in_cent: string | null = null,
-    work_expenses_in_cent: string | null = null,
-    taxation_in_cent: string | null = null,
-    insurances_premiums: string | null = null
+    rents_collected_in_cent: number = 0,
+    gants_special_work_in_cent: number = 0,
+    work_expenses_in_cent: number = 0,
+    taxation_in_cent: number = 0,
+    insurances_premiums_in_cent: number = 0
   ) {
     this.id = id;
     this.name = name;
@@ -36,6 +34,12 @@ export class Property implements IProperty {
     this.gants_special_work_in_cent = gants_special_work_in_cent;
     this.work_expenses_in_cent = work_expenses_in_cent;
     this.taxation_in_cent = taxation_in_cent;
-    this.insurances_premiums = insurances_premiums;
+    this.insurances_premiums_in_cent = insurances_premiums_in_cent;
+  }
+
+
+  public get totalNet(): number {
+
+    return (this.rents_collected_in_cent+this.gants_special_work_in_cent-this.work_expenses_in_cent-this.taxation_in_cent-this.insurances_premiums_in_cent)*100;
   }
 }
